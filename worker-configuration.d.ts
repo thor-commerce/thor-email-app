@@ -6,6 +6,16 @@ declare namespace Cloudflare {
 		mainModule: typeof import("./src/index");
 	}
 	interface Env {
+		THOR_WEBHOOK_SECRET: string;
+		THOR_API_KEY: string;
+		THOR_TENANT: string;
+		THOR_API_URL?: string;
+		
+		// Email configuration (AWS SES)
+		EMAIL_FROM?: string;
+		AWS_REGION?: string;
+		AWS_ACCESS_KEY_ID?: string;
+		AWS_SECRET_ACCESS_KEY?: string;
 	}
 }
 interface Env extends Cloudflare.Env {}

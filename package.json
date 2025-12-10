@@ -1,21 +1,37 @@
 {
-  "name": "cloudflare-workers-openapi",
+  "name": "thor-email-app",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "deploy": "wrangler deploy",
+    "deploy": "pnpm build:emails && wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev",
-    "cf-typegen": "wrangler types"
+    "build:emails": "node scripts/build-emails.mjs",
+    "cf-typegen": "wrangler types",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "codegen:watch": "graphql-codegen --config codegen.ts --watch"
   },
   "dependencies": {
+    "@aws-sdk/client-sesv2": "^3.948.0",
     "chanfana": "^2.6.3",
+    "handlebars": "^4.7.8",
     "hono": "^4.6.20",
+    "mjml": "^4.18.0",
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^6.1.0",
+    "@graphql-codegen/schema-ast": "^5.0.0",
+    "@graphql-codegen/typescript": "^5.0.6",
+    "@graphql-codegen/typescript-graphql-request": "^6.3.0",
+    "@graphql-codegen/typescript-operations": "^5.0.6",
     "@types/node": "22.13.0",
     "@types/service-worker-mock": "^2.0.4",
+    "dotenv": "^17.2.3",
+    "graphql": "^16.12.0",
+    "graphql-config": "^5.1.5",
+    "graphql-request": "^7.3.5",
+    "prettier": "^3.7.4",
     "wrangler": "^4.53.0"
   }
 }

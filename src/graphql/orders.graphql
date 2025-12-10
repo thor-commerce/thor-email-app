@@ -1,0 +1,58 @@
+query GetOrder($id: ID!) {
+  order(id: $id) {
+    id
+    orderNumber
+    customer {
+      firstName
+      lastName
+      email
+    }
+    lineItems {
+      nodes {
+        productName
+        quantity
+        variant {
+          image {
+            src
+          }
+        }
+        unitPrice {
+          value {
+            centAmount
+            currencyCode
+          }
+        }
+      }
+    }
+    shippingAddress {
+      firstName
+      lastName
+      address1
+      city
+      postalCode
+      countryCode
+    }
+    billingAddress {
+      firstName
+      lastName
+      address1
+      city
+      postalCode
+      countryCode
+    }
+    shippingLines {
+      total {
+        centAmount
+        currencyCode
+      }
+    }
+    subtotal {
+      centAmount
+      currencyCode
+    }
+    total {
+      centAmount
+      currencyCode
+    }
+  }
+}

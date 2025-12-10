@@ -165,3 +165,8 @@ dist
 .env*
 !.env.example
 .wrangler/
+
+# GraphQL Code Generator
+
+src/generated/
+thor.schema.graphql

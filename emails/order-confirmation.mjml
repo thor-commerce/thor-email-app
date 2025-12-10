@@ -1,0 +1,149 @@
+<mjml>
+  <mj-head>
+    <mj-style>
+    </mj-style>
+  </mj-head>
+  <mj-body>
+    <mj-section padding-bottom="0px">
+      <mj-column padding="0px">
+        <mj-text font-size="22px" font-weight="700">
+          Thank you for your order
+        </mj-text>
+        <mj-text font-size="13px" font-weight="700">
+          Order no. {{orderNumber}}
+        </mj-text>
+         <mj-text line-height="18px" font-size="13px">
+          Dear {{shippingAddress.firstName}},
+        </mj-text>
+        <mj-text line-height="18px" font-size="13px">
+          Congratulations on your new APOLLON product(s) and thank you for shopping with us.
+        </mj-text>
+        <mj-text line-height="18px" font-size="13px">
+          This confirmation contains details regarding your order number {{orderNumber}}.
+        </mj-text>
+        <mj-text line-height="18px" font-size="13px">
+          You are always welcome to contact our customer service in case you have any questions.
+          Contact us by e-mail at <a href="mailto:orders@apollonstudios.com" style="text-decoration: underline">orders@apollonstudios.com</a>.
+          Please refer to your order number when contacting us.
+        </mj-text>
+        <mj-text line-height="18px" font-size="13px">
+          We wish you a wonderful day - and we hope you will be pleased with your APOLLON product(s).
+        </mj-text>
+        <mj-text line-height="18px" font-size="13px">
+          Kind regards,<br>APOLLON STUDIOS</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text font-weight="700" font-size="13px" padding-bottom="0" padding-top="0">Order details</mj-text>
+        <mj-divider border-width="1px"></mj-divider>
+        <mj-table font-size="13px" line-height="18px">
+          <thead>
+            <tr>
+              <th align="left">
+                Shipping address
+              </th>
+              <th align="left">
+                Billing address
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-size: 13px; line-height: 18px;">
+                {{#if shippingAddress}}
+                  {{shippingAddress.firstName}} {{shippingAddress.lastName}}
+                  <br />
+                  {{shippingAddress.address1}}
+                  <br />
+                  {{#if shippingAddress.address2}}
+                    {{shippingAddress.address2}}
+                    <br />
+                  {{/if}}
+                  {{shippingAddress.postalCode}} {{shippingAddress.city}}
+                  </br>
+                  {{shippingAddress.countryCode}}
+                {{/if}}
+              </td>
+              <td style="font-size: 13px; line-height: 18px;">
+                {{#if billingAddress}}
+                  {{billingAddress.firstName}} {{billingAddress.lastName}}
+                  <br />
+                  {{billingAddress.address1}}
+                  <br />
+                  {{#if billingAddress.address2}}
+                    {{billingAddress.address2}}
+                    <br />
+                  {{/if}}
+                  {{billingAddress.postalCode}} {{billingAddress.city}}
+                  </br>
+                  {{billingAddress.countryCode}}
+                {{/if}}
+              </td>
+            </tr>
+          </tbody>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0px">
+      <mj-column>
+        <mj-table cellpadding="5x">
+          <tbody>
+            {{#each lineItems}}
+              <tr>
+                <td width="100">
+                  {{#if this.imageUrl}}
+                    <img width="100" src="{{this.imageUrl}}" />
+                  {{/if}}
+                </td>
+                <td align="left">
+                  {{this.name}}
+                  <br />
+                  Quantity: {{this.quantity}}
+                </td>
+                <td style="white-space: nowrap">
+                  {{this.unitPrice.value}} {{this.unitPrice.currencyCode}}
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-divider border-width="1px"></mj-divider>
+        <mj-table>
+          <tbody>
+            <tr>
+              <td width="100px">
+                Subtotal:
+              </td>
+              <td align="left">
+                {{subtotal.value}} {{subtotal.currencyCode}}
+              </td>
+            </tr>
+            <tr>
+              <td width="100px">
+                Shipping:
+              </td>
+              <td align="left">
+                {{shippingPrice.value}} {{shippingPrice.currencyCode}}
+              </td>
+            </tr>
+            <tr>
+              <td width="100px">
+                Total:
+              </td>
+              <td align="left">
+                {{total.value}} {{total.currencyCode}}
+              </td>
+            </tr>
+          </tbody>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>
