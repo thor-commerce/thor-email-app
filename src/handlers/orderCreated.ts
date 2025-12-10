@@ -57,7 +57,7 @@ export async function handleOrderCreated(
             lineItems: data.order.lineItems.nodes.map(item => ({
                 name: item.productName,
                 quantity: item.quantity,
-                imageUrl: item.variant?.image.src + "?w=200&f=webp",
+                imageUrl: item.variant?.image.src + "?w=500",
                 unitPrice: {
                     value: centsToAmount(item.unitPrice.value.centAmount),
                     currencyCode: item.unitPrice.value.currencyCode,
